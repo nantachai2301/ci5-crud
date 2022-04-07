@@ -10,16 +10,20 @@
  
 </head>
 <body>
+<style>
+body {
+    background-color:#003300
+}
+h1{
+    text-align: center; color:#FFFF;
+}
+</style>
     <div class="container mt-4">
-        <h1>รายชื่อนักเรียนที่เข้าเรียน</h1>
+        <h1>ข้อมูลนักเรียนที่เข้าเรียน</h1>
     <hr>
-        <div class="d-flex justify-content-end">
-            <a href="<?php echo site_url('/addname'); ?>" class="btn btn-primary">Add name</a>
-
-        </div>
 
         <div class="mt-3">
-        <table class="table table-danger table-striped" id="users-list">
+        <table class="table  table-dark" id="users-list">
         <thead>
             <tr>
                 <th>ID</th>
@@ -29,10 +33,9 @@
                 <th>ระยะเวลา</th>
                 <th>เวลาที่เข้าร่วม</th>
                 <th>เวลาที่ออก</th>
-                <th>Action</th>
             </tr>
         </thead>
-        <tbody class="table-info">
+        <tbody>
             <?php if($users) :?>
                 <?php foreach($users as $user) :?>
                     <tr>
@@ -43,10 +46,6 @@
                         <td><?php echo $user['time']; ?></td>
                         <td><?php echo $user['in']; ?></td>
                         <td><?php echo $user['out']; ?></td>
-                        <td>
-                            <a href="<?php echo base_url('editnames/'.$user['id']); ?>" class="btn btn-warning">Edit</a>
-                            <a href="<?php echo base_url('delete/'.$user['id']); ?>" class="btn btn-danger">Delete</a>
-                        </td>
                     </tr>
 
                 <?php endforeach; ?>
@@ -62,11 +61,7 @@
     <script src=https://code.jquery.com/jquery-3.6.0.min.js></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.5/datatables.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#users-list').DataTable();
-        })
-    </script>
+    
 
 </body>
 </html>
